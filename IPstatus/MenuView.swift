@@ -15,13 +15,7 @@ struct MenuView: View {
     @Environment(\.openURL) var openURL
     @Namespace var animation
     @State var currentTab = "addresses"
-    @State var localIP: String {
-        didSet {
-            print("TEEEEESSSSSTTTT")
-            publicIP = "deneme"
-                
-        }
-    }
+    @State var localIP: String
     @State var publicIP: String
     @State private var showPopover = false
     @State private var showPublicPopover = false
@@ -66,7 +60,7 @@ struct MenuView: View {
                             
                             .onTapGesture() {
                                 let queue = DispatchQueue(label: "work-queue")
-                                
+                                print("login\(launchAtLogin)")
                                 queue.async {
                                     copyOnClick()
                                 }
@@ -83,7 +77,7 @@ struct MenuView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(.primary)
 //                            .onChange(of: NetworkMonitor.shared.connectionType, perform: { value in
-//                                publicIP = getIPAdresses.getPublicIP()
+//                                publicIP = getIPAdresses.getPubli,cIP()
 //                            })
                             .onTapGesture() {
                                 
@@ -103,7 +97,7 @@ struct MenuView: View {
                                 Text(" Coppied! ")
                             }
                     }
-                    .frame(width: 80)
+                    .frame(width: 110)
                     VStack{
                         
                         Button(action: {
